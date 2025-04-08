@@ -1,6 +1,8 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import KakaoProvider from "next-auth/providers/kakao";
 
+import { api } from "@/services/api";
+
 export const authOptions: NextAuthOptions = {
   providers: [
     KakaoProvider({
@@ -10,11 +12,16 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async signIn({ profile }) {
-      console.log("카카오 프로필 확인", profile);
+      console.log("카카오 프로필", profile);
       const email = profile?.kakao_account?.email;
       const name = profile?.properties?.nickname;
 
-      console.log("email, name, emailAgree", email, name);
+      const response = await api.postAuthCheckSocial(email!);
+
+      if (response.exists) return true;
+
+      const requestData = { email: email!, name: name! };
+      await api.postRegister(requestData);
       return true;
     },
   },
