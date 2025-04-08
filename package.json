@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@welldone-software/why-did-you-render": "^10.0.1",
     "next": "15.2.4",
     "next-auth": "^4.24.11",
     "react": "^19.0.0",
@@ -21,6 +22,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",
+    "axios": "^1.8.4",
     "cross-env": "^7.0.3",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
