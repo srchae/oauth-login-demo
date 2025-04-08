@@ -20,6 +20,10 @@ body {
   font-family: "Pretendard", Arial, Helvetica, sans-serif;
 }
 
+.Toastify__toast {
+  font-family: "Pretendard", sans-serif;
+}
+
 @font-face {
   font-family: "Pretendard";
   src: url("/fonts/Pretendard-Regular.subset.woff2");
